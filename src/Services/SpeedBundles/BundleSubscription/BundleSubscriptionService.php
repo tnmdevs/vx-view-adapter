@@ -28,13 +28,13 @@ class BundleSubscriptionService implements IBundleSubscriptionService
         } catch (\Exception $exception) {
             \Log::error(sprintf('MSISDN: %s. %s', $attributes['msisdn'], $exception->getMessage()));
 
-            return new BundleSubscriptionResponse(new Response(new BaseResponse([
+            return new BundleSubscriptionResponse(new Response(new BaseResponse(json_encode([
                 'ResponseInfo' => [
                     'Message' => $exception->getMessage(),
                     'Success' => false,
                     'Code' => 'Exception'
                 ]
-            ])));
+            ]))));
         }
     }
 }
