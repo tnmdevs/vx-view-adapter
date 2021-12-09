@@ -13,7 +13,7 @@ class BundleSubscriptionResponse
         $this->response = $response;
     }
 
-    public function successful(): bool
+    public function success(): bool
     {
         $responseData = $this->response->json();
         return $responseData['ResponseInfo']['Success'];
@@ -21,7 +21,7 @@ class BundleSubscriptionResponse
 
     public function notSuccessful(): bool
     {
-        return !$this->successful();
+        return !$this->success();
     }
 
     public function getMessage()
@@ -34,5 +34,10 @@ class BundleSubscriptionResponse
     {
         $responseData = $this->response->json();
         return $responseData['ResponseInfo']['Code'] == 'Exception';
+    }
+
+    public function isInsufficientBalanceError(): bool
+    {
+        return false;
     }
 }
