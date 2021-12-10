@@ -19,6 +19,6 @@ class AccessTokenGenerationClient
 
         if ($response->notSuccessful()) return;
 
-        AccessToken::firstOrCreate([], ['token' => $response->getToken()]);
+        AccessToken::updateOrCreate([], ['token' => $response->getToken()]);
     }
 }
