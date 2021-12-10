@@ -9,10 +9,10 @@ use Psr\Http\Message\StreamInterface;
 
 class BaseResponse implements ResponseInterface
 {
-    private array $body;
+    private string $body;
     private int $statusCode;
 
-    public function __construct(array $body, int $statusCode = 200)
+    public function __construct(string $body, int $statusCode = 200)
     {
         $this->body = $body;
         $this->statusCode = $statusCode;
@@ -86,5 +86,10 @@ class BaseResponse implements ResponseInterface
     public function getReasonPhrase()
     {
         // TODO: Implement getReasonPhrase() method.
+    }
+
+    public function isInsufficientBalanceError(): bool
+    {
+        return false;
     }
 }

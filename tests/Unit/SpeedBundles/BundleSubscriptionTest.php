@@ -15,6 +15,6 @@ class BundleSubscriptionTest extends TestCase
 
         $response = (new BundleSubscriptionClient('0888800900', 24312))->query();
 
-        $this->assertTrue($response->successful());
+        $this->assertTrue($response->success());
     }
 }

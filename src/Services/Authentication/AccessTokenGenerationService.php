@@ -28,7 +28,7 @@ class AccessTokenGenerationService implements IAccessTokenGenerationService
 
         } catch (\Exception $exception) {
             Log::error('Failed to renew VX-View token');
-            return new AccessTokenGenerationResponse(new Response(new BaseResponse([], 500)));
+            return new AccessTokenGenerationResponse(new Response(new BaseResponse('', 500)));
         }
     }
 }
